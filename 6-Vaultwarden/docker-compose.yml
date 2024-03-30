@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+    server:
+        container_name: vaultwarden
+        volumes:
+            - '/docker/vaultwarden:/data/'
+        environment:
+            - SIGNUPS_ALLOWED=true
+            - ADMIN_TOKEN=<update token>
+        ports:
+            - '8080:80'
+        image: 'vaultwarden/server:latest'
