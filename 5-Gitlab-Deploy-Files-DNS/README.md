@@ -1,4 +1,4 @@
-# Creating Container in Gitlab using Kaniko 
+# Deploying Files in Gitlab to Server
 We will be creating a Gitlab CI/CD Pipeline that will deploy out configuration files to my DNS server! Here is the [youtube video](https://www.youtube.com/watch?v=JfxxxjCoQuk&list=PLhkW8M2MBf-H33LeTrVMc0LwN3EuOqGQV&index=8&pp=gAQBiAQB) to follow with this guide!
 
 > Note: The Operating System I am using is Centos 8 Stream, commands may vary depending on the Operating System of choice!
