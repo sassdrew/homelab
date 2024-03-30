@@ -1,0 +1,12 @@
+default:
+  image: centos:8
+
+stages:
+  - build
+  - test
+
+build-code-job:
+  stage: build
+  script:
+    - echo "check out these files I need to build"
+    - ls 
