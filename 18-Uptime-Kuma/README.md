@@ -1,5 +1,5 @@
 # Creating a Uptime Kuma Server
-Creating a Uptime Kuma Server! Here is the [youtube video](https://www.youtube.com/watch?v=xPDLqlFMnwU&list=PLhkW8M2MBf-H33LeTrVMc0LwN3EuOqGQV&index=12&pp=gAQBiAQB) to follow with this guide!
+Creating a Uptime Kuma Server! Here is the [youtube video](https://www.youtube.com/watch?v=yvKJQaxis98&list=PLhkW8M2MBf-H33LeTrVMc0LwN3EuOqGQV&index=37&t=159s&pp=gAQBiAQB) to follow with this guide!
 
 > Note: The Operating System I am using is Oracle Linux 8, commands may vary depending on the Operating System of choice!
 
