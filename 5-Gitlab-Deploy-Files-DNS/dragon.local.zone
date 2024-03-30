@@ -1,0 +1,12 @@
+$TTL 86400
+@   IN  SOA     dns.dragon.local. root.dragon.local. (
+201411320 ;Serial
+3600        ;Refresh
+1800        ;Retry
+604800      ;Expire
+86400       ;Minimum TTL
+)
+;Name Server Information
+@      IN  NS      dns.dragon.local.
+;IP address of Name Server
+dns                        IN      A       172.168.1.2

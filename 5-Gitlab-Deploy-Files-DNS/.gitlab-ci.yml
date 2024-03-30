@@ -1,0 +1,21 @@
+image: 
+  name: gitlab.dragon.local:5000/root/container-centos7:latest
+  entrypoint: [""]
+
+stages: 
+  - validate
+  - deploy
+
+validate: 
+  stage: validate
+  script: 
+    - named-checkzone dragon.local dragon.local.zone
+
+deploy: 
+  stage: deploy
+  script: 
+    - mkdir -p ~/.ssh
+    - cat ${gitlab_key} > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa 
+    - scp -o StrictHostKeyChecking=no dragon.local.zone 172.16.1.2:/var/named/data/dragon.local.zone 
+    - ssh -o StrictHostKeyChecking=no 172.16.1.2 "rndc reload"
