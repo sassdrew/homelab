@@ -62,7 +62,7 @@ kubectl apply -f awx.yaml
 
 You can watch the containers spin up by running this, this will take a few seconds to populate, if this does not populate please refer to troubleshooting section
 ```sh
-watch kubectl get pods -n awx```
+watch kubectl get pods -n awx
 ```
 
 To get the port it is running on, run the following: 
