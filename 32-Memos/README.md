@@ -88,11 +88,6 @@ Restart nginx
 systemctl restart nginx
 ```
 
-Create docker-compose.yml in /root/. Copy the contents from the docker-compose file in this repo's directory. 
-```
-vi docker-compose.yml 
-```
-
 Create the following directories
 ```sh
 mkdir -p ~/.memos/
