@@ -1,5 +1,5 @@
-# Creating a bookstack Server
-Creating a bookstack Server! Here is the [youtube video](https://www.youtube.com/watch?v=dSP8o5XBs08&list=PLhkW8M2MBf-H33LeTrVMc0LwN3EuOqGQV&index=49&pp=gAQBiAQB) to follow with this guide!
+# Creating a answer Server
+Creating a answer Server! Here is the [youtube video](https://www.youtube.com/watch?v=goJ9mqZUwf4&list=PLhkW8M2MBf-H33LeTrVMc0LwN3EuOqGQV&index=71&pp=gAQBiAQB) to follow with this guide!
 
 > Note: The Operating System I am using is Oracle Linux 8, commands may vary depending on the Operating System of choice!
 
@@ -33,16 +33,16 @@ yum -y install nginx
 
 Create the certificate on the step-ca server ( Run this command on step-ca server )
 ```sh
-mkdir -p /root/bookstack
-cd /root/bookstack 
-step ca certificate bookstack.dragon.local bookstack.dragon.local.crt bookstack.dragon.local.key
+mkdir -p /root/answer
+cd /root/answer 
+step ca certificate answer.dragon.local answer.dragon.local.crt answer.dragon.local.key
 ```
 
-Copy the cert over to the bookstack server. ( Run this command on bookstack server )
+Copy the cert over to the answer server. ( Run this command on answer server )
 ```sh
 mkdir -p /etc/pki/nginx/private
-scp root@<CA Server>:/root/bookstack/bookstack.dragon.local.crt /etc/pki/nginx/bookstack.dragon.local.crt
-scp root@<CA Server>:/root/bookstack/bookstack.dragon.local.key /etc/pki/nginx/private/bookstack.asgard.local.key
+scp root@<CA Server>:/root/answer/answer.dragon.local.crt /etc/pki/nginx/answer.dragon.local.crt
+scp root@<CA Server>:/root/answer/answer.dragon.local.key /etc/pki/nginx/private/answer.asgard.local.key
 ```
 
 Edit the nginx.conf 
@@ -50,7 +50,7 @@ Edit the nginx.conf
 vi /etc/nginx/nginx.conf
 ```
 
-Uncomment the TLS section and update the ssl_certificate and update location to hit http://localhost:8080
+Uncomment the TLS section and update the ssl_certificate and update location to hit http://localhost:9080
 ```
 # Settings for a TLS enabled server.
 
@@ -60,8 +60,8 @@ Uncomment the TLS section and update the ssl_certificate and update location to 
         server_name  _;
         root         /usr/share/nginx/html;
 
-        ssl_certificate "/etc/pki/nginx/bookstack.dragon.local.crt";
-        ssl_certificate_key "/etc/pki/nginx/private/bookstack.dragon.local.key";
+        ssl_certificate "/etc/pki/nginx/answer.dragon.local.crt";
+        ssl_certificate_key "/etc/pki/nginx/private/answer.dragon.local.key";
         ssl_session_cache shared:SSL:1m;
         ssl_session_timeout  10m;
         ssl_ciphers PROFILE=SYSTEM;
@@ -71,7 +71,7 @@ Uncomment the TLS section and update the ssl_certificate and update location to 
         include /etc/nginx/default.d/*.conf;
 
         location / {
-            proxy_pass http://localhost:8080;
+            proxy_pass http://localhost:9080;
             client_max_body_size 0;
             proxy_read_timeout 999999s;
             proxy_set_header Host $host;
@@ -94,15 +94,9 @@ Restart nginx
 systemctl restart nginx
 ```
 
-Create docker-compose.yml in /root/. Copy the contents from the docker-compose file in this repo's directory. 
+Get docker-compose file
 ```
-vi docker-compose.yml 
-```
-
-Create the following directories
-```sh
-mkdir -p ./bookstack_app_data
-mkdir -p ./bockstack_db_data
+curl -fsSL https://raw.githubusercontent.com/answerdev/answer/main/docker-compose.yaml >> docker-compose.yml
 ```
 
 Start up the containers
