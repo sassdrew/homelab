@@ -1,5 +1,5 @@
 # Creating a docuseal Server
-Creating a docuseal Server! Here is the [youtube video](https://www.youtube.com/watch?v=dSP8o5XBs08&list=PLhkW8M2MBf-H33LeTrVMc0LwN3EuOqGQV&index=49&pp=gAQBiAQB) to follow with this guide!
+Creating a docuseal Server! Here is the [youtube video](https://www.youtube.com/watch?v=Fd-11sKAU7w&list=PLhkW8M2MBf-H33LeTrVMc0LwN3EuOqGQV&index=64&t=178s&pp=gAQBiAQB) to follow with this guide!
 
 > Note: The Operating System I am using is Oracle Linux 8, commands may vary depending on the Operating System of choice!
 
