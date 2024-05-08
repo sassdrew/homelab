@@ -4,9 +4,12 @@ services:
         container_name: vaultwarden
         volumes:
             - '/docker/vaultwarden:/data/'
+            #put your cert and key here instead of nginx
+            - <your volume for cert>:/ssl' 
         environment:
-            - SIGNUPS_ALLOWED=true
-            - ADMIN_TOKEN=<update token>
+            - SIGNUPS_ALLOWED: true
+            - ADMIN_TOKEN: <update token>
+            - ROCKET_TLS: '{certs="/ssl/vaultwarden.crt",key="/ssl/vaultwarden.key"}'
         ports:
             - '8080:80'
         image: 'vaultwarden/server:latest'
