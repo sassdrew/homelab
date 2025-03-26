@@ -33,8 +33,9 @@ vi values.yaml
 ```
 
 ```sh
-# Update below to the number of replicas
+# Update below to the number of replicas for the below values
 defaultReplicaCount
+defaultClassReplicaCount
 ```
 
 Install longhorn
