@@ -12,14 +12,12 @@ ssh-keygen -m PEM -t rsa
 <enter>
 ```
 
-Add the Public Key to your DNS server
+Copy the public key ( ~/.ssh/gitlab.pub ) to the DNS server's /root/.ssh/authorized_keys 
 ```sh
-cd ~/.ssh
-ssh-keygen -m PEM -t rsa
-~/.ssh/gitlab
-<enter>
-<enter>
+ssh root@dns
+vi ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys #Here is where you would paste the public key
 ```
+
 
 Add the Private Key to Gitlab as a variable
 ```
